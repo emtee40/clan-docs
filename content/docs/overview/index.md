@@ -1,5 +1,5 @@
 +++
-title = "Overview"
+title = "Technial Overview"
 description = "Overview of cLAN's architecture, components and security"
 date = 2021-05-01T18:10:00+00:00
 updated = 2021-07-13T18:10:00+00:00
@@ -192,9 +192,9 @@ configs.json
 }
 ```
 
-A crude example of how this interface would look like
-<img width="100%" src="flake_controller_new.png" alt="VM Manager New Network">
- 
+<!-- A crude example of how this interface would look like
+ <img width="100%" src="flake_controller_new.png" alt="VM Manager New Network">
+--> 
 
 ### VM Manager
 
