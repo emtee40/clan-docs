@@ -1,17 +1,33 @@
 // Set darkmode
 document.getElementById('mode').addEventListener('click', () => {
   let isDarkTheme = document.body.classList.contains('dark');
-  setColorTheme(!isDarkTheme);
+  setColorTheme(!isDarkTheme ? "dark" : "light");
 });
 
 
-function setColorTheme(dark) {
-  if (dark) {
+let preferDarkTheme = prefersDarkMode();
+let theme = localStorage.getItem('theme');
+if (theme !== null) {
+  setColorTheme(theme);
+} else {
+  setColorTheme(preferDarkTheme ? "dark" : "light");
+}
+
+// Get the media query list object for the prefers-color-scheme media feature
+const colorSchemeQueryList = window.matchMedia("(prefers-color-scheme: dark)");
+// Add an event listener for the change event
+colorSchemeQueryList.addEventListener("change", handleColorSchemeChange);
+
+
+function setColorTheme(theme) {
+  if (theme === "dark") {
     document.body.classList.add('dark');
     switchClanLogo("white");
+    localStorage.setItem('theme', 'dark');
   } else {
     document.body.classList.remove('dark');
     switchClanLogo("dark");
+    localStorage.setItem('theme', 'light');
   }
 }
 
@@ -51,21 +67,14 @@ function switchClanLogo(theme) {
 }
 
 
-let preferDarkTheme = prefersDarkMode();
-setColorTheme(preferDarkTheme);
 
-// Get the media query list object for the prefers-color-scheme media feature
-const colorSchemeQueryList = window.matchMedia("(prefers-color-scheme: dark)");
 // A function that executes some logic based on the color scheme preference
 function handleColorSchemeChange(e) {
   if (e.matches) {
     // The user prefers dark mode
-    setColorTheme(true);
+    setColorTheme("dark");
   } else {
     // The user prefers light mode
-    setColorTheme(false);
+    setColorTheme("light");
   }
 }
-
-// Add an event listener for the change event
-colorSchemeQueryList.addEventListener("change", handleColorSchemeChange);
