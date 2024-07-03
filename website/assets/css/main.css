@@ -2549,7 +2549,37 @@ ul.actions:last-child {
 	margin-bottom: 0;
 }
 
+.content-section details {
+  margin: 1em 0;
+  width: 80%;
+  background: #fff;
+  padding: 1em 1.5em 1em 1.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.content-section details p {
+  margin: 1em 0 0.5em 0;
+  padding-left: 1em;
+}
+
+.content-section details b {
+  white-space: no-break;
+}
+
+.content-section details b:after {
+  content: ':';
+}
+
+.content-section summary {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 736px) {
+
+  .content-section details {
+    padding: 1em;
+  }
 
 	ul.actions:not(.fixed) {
 		-moz-flex-direction: column;
@@ -3301,6 +3331,12 @@ input[type="button"].small,
 /* Mobile */
 
 @media screen and (max-width: 736px) {
+
+  .content-section details summary > b:after {
+    content: '';
+    display: block;
+    padding-left: 2em;
+  }
 
 	#clan-logo {
 		width: 12em;
