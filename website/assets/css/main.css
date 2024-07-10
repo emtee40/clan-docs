@@ -13,25 +13,39 @@
 
 .top-header {
 	background-color: #2C2C2C;
-	padding: 1em 0;
+	padding: 0.5em 0;
 	width: 100%;
-	position: fixed;
+	position: sticky;
 	top: 0;
-	left: 0;
 	z-index: 1000;
+}
+
+.top-header img {
+  width: 2em;
+}
+
+.header-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+	gap: 0 2em;
+  align-items: center;
 }
 
 .header-nav-links a {
 	color: #FFFFFF;
 	text-decoration: none;
-	margin: 0 1em;
+	white-space: nowrap;
 	font-size: 1.2em;
+}
+
+.header-nav-links a:first-child {
+	line-height: 0;
 }
 
 .header-nav-links a:hover {
 	text-decoration: underline;
 }
-
 
 @media screen and (max-width: 480px) {
 	.header-nav-links a {
@@ -152,7 +166,6 @@ body {
 	line-height: 1;
 	display: flex;
 	flex-direction: column;
-	margin-top: 3.5em;
 }
 
 ol,
